@@ -22,8 +22,8 @@ postRouter.route("/search").get(searchPosts);
 // !postRouter.route("/:id").put(updatePost)
 // !postRouter.route("/:id").delete(deletePost)
 
-postRouter.route("/:id/comment").post(addComment);
-postRouter.route("/:id/comment").get(getComments);
+postRouter.route("/:postId/comment").post(addComment);
+postRouter.route("/:postId/comment").get(getComments);
 postRouter.route("/:id/comment/:commentId").put(updateComments);
 postRouter.route("/:id/comment/:commentId").delete(deleteComments);
 

@@ -2,7 +2,9 @@ import { Comment } from "../models/comment.model.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 
 const addComment = asyncHandler(async (req, res) => {
-	const { content, authorId, postId } = req.body;
+	const { content, authorId } = req.body;
+	console.log(req.params);
+	const { postId } = req.params;
 	if (!content || !authorId || !postId) {
 		res.status(400);
 		throw new Error("Content, authorId and postId are required");
@@ -19,12 +21,16 @@ const getComments = asyncHandler(async (req, res) => {
 	const { postId } = req.params;
 
 	const comments = await Comment.find({ postId });
+
 	if (!comments.length) {
 		res.status(404);
 		throw new Error("No comments found for this post");
 	}
 
-	res.status(200).json(comments);
+	res.status(200).json({
+		message: "number of posts found = " + comments.length,
+		comments,
+	});
 });
 
 const updateComments = asyncHandler(async (req, res) => {
