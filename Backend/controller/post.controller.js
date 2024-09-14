@@ -1,4 +1,3 @@
-import { User } from "../models/user.model.js";
 import { Post } from "../models/post.model.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 

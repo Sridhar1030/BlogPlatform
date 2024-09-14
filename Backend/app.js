@@ -18,5 +18,6 @@ app.use(express.json());
 app.use("/api/v1/auth", userRouter);
 app.use("/api/v1/posts",postRouter)
 
+
 app.use(errorHandler);
 export { app };
