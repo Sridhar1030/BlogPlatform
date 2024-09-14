@@ -1,15 +1,20 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from './assets/Pages/Login';
+import Home from './assets/Pages/Home';
 
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      Sridhar
-    </>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home />} />
+        {/* You can add more routes here */}
+      </Routes>
+    </Router>
+  );
+};
 
 export default App
